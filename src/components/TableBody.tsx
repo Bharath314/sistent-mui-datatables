@@ -42,7 +42,7 @@ const defaultBodyStyles = (theme: Theme) =>
     },
   }) satisfies Record<string, CSSObject>;
 
-interface TableBodyProps {
+export interface TableBodyProps {
   data: MUIDataTableDisplayRow[];
   count: number;
   columns: MUIDataTableColumnState[];

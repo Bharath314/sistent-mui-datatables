@@ -69,7 +69,7 @@ export interface MUIDataTableOptions {
   customSearchRender?:
     | ReactElement
     | ((
-        searchText: string,
+        searchText: string | null,
         handleSearch: (text: string) => void,
         hideSearch: () => void,
         options: MUIDataTableOptions,

@@ -24,12 +24,13 @@ import { load, save } from './localStorage';
 import type { ReactNode, ComponentType } from 'react';
 import type { Theme } from '@mui/material/styles';
 import type { MUIDataTableData } from './types/data';
+import type { MUIDataTableOptions } from './types';
 
 export interface MUIDataTableProps {
   title: ReactNode;
   data: MUIDataTableData;
   columns: (string | Record<string, unknown>)[];
-  options?: Record<string, unknown>;
+  options?: MUIDataTableOptions;
   className?: string;
   components?: Record<string, unknown>;
   classes: Record<string, string>;

@@ -32,7 +32,7 @@ const defaultToolbarSelectStyles = (theme: Theme) =>
     deleteIcon: {},
   }) satisfies Record<string, CSSObject>;
 
-interface TableToolbarSelectProps {
+export interface TableToolbarSelectProps {
   options: MUIDataTableOptions;
   selectedRows: MUIDataTableSelectedRows;
   displayData: MUIDataTableDisplayRow[];

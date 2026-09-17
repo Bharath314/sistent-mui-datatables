@@ -12,7 +12,7 @@ const useStyles = makeStyles({ name: 'MUIDataTableFooter' })(() => ({
   },
 }));
 
-interface TableFooterProps {
+export interface TableFooterProps {
   options: MUIDataTableOptions;
   rowCount: number;
   page: number;

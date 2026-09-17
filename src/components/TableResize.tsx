@@ -45,7 +45,7 @@ interface TableResizeState {
   updateCoords?: boolean;
 }
 
-interface TableResizeProps {
+export interface TableResizeProps {
   classes: Record<keyof typeof defaultResizeStyles, string>;
   options: MUIDataTableOptions;
   tableId?: string;

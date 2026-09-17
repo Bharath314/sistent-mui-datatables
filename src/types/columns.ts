@@ -45,7 +45,7 @@ export interface MUIDataTableColumnState {
   ) => ComponentProps<typeof TableCell>;
   setCellHeaderProps?: (columnMeta: MUIDataTableColumnState & { index: number }) => ComponentProps<typeof TableCell>;
   filterList?: string[];
-  filterOptions?: readonly string[] | MUIDataTableColumnFilterOptions;
+  filterOptions?: MUIDataTableColumnFilterOptions;
   filterType?: MUIDataTableFilterType;
   hint?: string;
 }
@@ -106,6 +106,8 @@ export interface MUIDataTableColumnFilterOptions {
     index: number,
     column: MUIDataTableColumnState,
   ) => ReactNode;
+  renderValue?: (value: string) => string;
+  fullWidth?: boolean;
 }
 
 export interface MUIDataTableCustomFilterListOptions {

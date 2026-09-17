@@ -88,7 +88,7 @@ export const defaultFilterStyles = (theme: Theme) =>
     },
   }) satisfies Record<string, CSSObject>;
 
-interface TableFilterProps {
+export interface TableFilterProps {
   filterData: string[][];
   filterList: MUIDataTableFilterList;
   options: MUIDataTableOptions;
@@ -210,7 +210,7 @@ class TableFilter extends React.Component<TableFilterProps, TableFilterState> {
                       color="primary"
                       className={classes.checkboxIcon}
                       onChange={this.handleCheckboxChange.bind(null, index, filterValue, column.name)}
-                      checked={(filterData[index] ?? []).indexOf(filterValue) >= 0}
+                      checked={(filterList[index] ?? []).indexOf(filterValue) >= 0}
                       classes={{ root: classes.checkbox, checked: classes.checked }}
                       value={filterValue != null ? filterValue.toString() : ''}
                     />
@@ -297,10 +297,8 @@ class TableFilter extends React.Component<TableFilterProps, TableFilterState> {
     const CheckboxComponent = components.Checkbox || Checkbox;
     const { classes, filterData } = this.props;
     const { filterList } = this.state;
-    const filterOpts = column.filterOptions as Record<string, unknown> | undefined;
-    const renderItem = filterOpts?.['renderValue']
-      ? (filterOpts['renderValue'] as (v: string) => string)
-      : (v: string) => v;
+    const filterOpts = column.filterOptions;
+    const renderItem = filterOpts?.['renderValue'] ? filterOpts['renderValue'] : (v: string) => v;
     const width = filterOpts?.['fullWidth'] === true ? 12 : 6;
 
     return (

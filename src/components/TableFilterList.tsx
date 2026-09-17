@@ -22,7 +22,7 @@ interface ColumnName {
   filterType: string;
 }
 
-interface TableFilterListProps {
+export interface TableFilterListProps {
   options: MUIDataTableOptions;
   filterList: MUIDataTableFilterList;
   filterUpdate: (

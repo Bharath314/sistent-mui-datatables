@@ -33,7 +33,7 @@ const useStyles = makeStyles({ name: 'MUIDataTableHead' })((theme) => ({
   },
 }));
 
-interface TableHeadProps {
+export interface TableHeadProps {
   columnOrder?: number[] | null;
   columns: MUIDataTableColumnState[];
   components?: { Tooltip?: ComponentType<unknown>; Checkbox?: ComponentType<unknown> };

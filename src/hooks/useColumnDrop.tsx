@@ -129,14 +129,16 @@ const handleHover = (opts: HoverOptions): void => {
         transitions[item.columnIndex as number] = transitions[item.columnIndex as number]! - item.left;
       });
 
-      for (const idx in columnOrder) {
+      for (let idx = 1; idx < columnOrder.length; idx++) {
         const colIndex = columnOrder[idx];
-        if (colIndex !== undefined && columns[colIndex] && columns[colIndex].display !== 'true') {
-          // skip hidden columns
-        } else {
-          const ref = headCellRefs[idx] as HTMLElement | null;
-          if (ref) ref.style.transition = '280ms';
-          if (ref) ref.style.transform = 'translateX(' + transitions[Number(idx) - 1] + 'px)';
+        const isHidden = colIndex !== undefined && columns[colIndex]?.display !== 'true';
+
+        if (!isHidden) {
+          const headCellRef = headCellRefs[idx];
+          if (headCellRef) {
+            headCellRef.style.transition = '280ms';
+            headCellRef.style.transform = `translateX(${transitions[idx - 1]}px)`;
+          }
         }
       }
 

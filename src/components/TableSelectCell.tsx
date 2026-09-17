@@ -151,7 +151,7 @@ const TableSelectCell = ({
             areAllRowsExpanded={areAllRowsExpanded}
             expandedRows={expandedRows ?? { data: [], lookup: {} }}
             onExpand={onExpand ?? (() => {})}
-            expandableRowsHeader={expandableRowsHeader ?? false}
+            expandableRowsHeader={isHeaderCell ? (expandableRowsHeader ?? false) : true}
             buttonClass={buttonClass}
             iconIndeterminateClass={iconIndeterminateClass}
             iconClass={iconClass}

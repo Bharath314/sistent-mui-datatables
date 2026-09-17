@@ -127,7 +127,7 @@ const PrintButton = ({ getContent, classes, IconComponent, options, print, Toolt
   );
 };
 
-interface TableToolbarProps {
+export interface TableToolbarProps {
   columns: MUIDataTableColumnState[];
   columnOrder?: number[];
   data: MUIDataTableDisplayRow[];
@@ -396,14 +396,7 @@ class TableToolbar extends React.Component<TableToolbarProps, TableToolbarState>
           }>
           {showSearch === true ? (
             options.customSearchRender && typeof options.customSearchRender === 'function' ? (
-              (
-                options.customSearchRender as (
-                  st: string | null,
-                  hs: (v: string) => void,
-                  h: () => void,
-                  o: MUIDataTableOptions,
-                ) => ReactNode
-              )(searchText, this.handleSearch, this.hideSearch, options)
+              options.customSearchRender(searchText, this.handleSearch, this.hideSearch, options)
             ) : (
               <TableSearch
                 searchText={searchText}
